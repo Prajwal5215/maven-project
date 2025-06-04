@@ -1,19 +1,11 @@
 # Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
 trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
-
-steps:trigger:
-  - main
-
-pool:
-  name: 'MFIRSTPOOL'  # Your self-hosted agent pool name
+  name: 'MYFIRSTPOOL'  # Your self-hosted agent pool name
 
 steps:
   # Step 1: Checkout the Code from GitHub
@@ -40,10 +32,12 @@ steps:
       publishLocation: 'Container'
     displayName: 'Publish Build Artifacts'
 
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  # Step 5: Simple one-line script
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  # Step 6: Multi-line script
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
